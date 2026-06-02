@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-- ubuntu-latest
+ vmImage: ubuntu-latest
 
 stages:
 # - stage: Build
@@ -21,7 +21,7 @@ stages:
 
 - stage: Test
   jobs:
-  - job: Test Project
+  - job: TestProject
     steps:
     - task: NodeTool@0
       inputs:
