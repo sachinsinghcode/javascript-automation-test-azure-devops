@@ -30,7 +30,7 @@ stages:
     - script: npm install
       displayName: Install Dependencies
 
-    - script: npm test:coverage
+    - script: npm run test:coverage
       displayName: Run Unit Tests and Code Coverage 
 
     - task: PublishTestResults@2
