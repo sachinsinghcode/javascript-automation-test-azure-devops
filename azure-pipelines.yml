@@ -30,11 +30,16 @@ stages:
     - script: npm install
       displayName: Install Dependencies
 
-    - script: npm test
-      displayName: Run Unit Tests
+    - script: npm test:coverage
+      displayName: Run Unit Tests and Code Coverage 
 
     - task: PublishTestResults@2
       inputs:
         testResultsFormat: JUnit
         testResultsFiles: junit.xml
         failTaskOnFailedTests: true
+
+    - task: PublishCodeCoverageResults@2
+      inputs:
+        codeCoverageTool: Cobertura
+        summaryFileLocation: 'coverage/cobertura-coverage.xml'
