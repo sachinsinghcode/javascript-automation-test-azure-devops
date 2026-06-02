@@ -4,10 +4,11 @@
   "description": "Sample Node.js app for Azure Pipelines",
   "main": "src/calculator.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --ci --reporters=default --reporters=jest-junit",
     "test:coverage": "jest --coverage"
   },
   "devDependencies": {
-    "jest": "^30.0.0"
+    "jest": "^30.0.0",
+    "jest-junit": "^17.0.0"
   }
 }

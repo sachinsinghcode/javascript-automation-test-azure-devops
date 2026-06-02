@@ -32,3 +32,9 @@ stages:
 
     - script: npm test
       displayName: Run Unit Tests
+
+    - task: PublishTestResults@2
+      inputs:
+        testResultsFormat: JUnit
+        testResultsFiles: junit.xml
+        failTaskOnFailedTests: true
