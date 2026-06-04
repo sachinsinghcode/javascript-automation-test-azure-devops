@@ -5,7 +5,7 @@ Sample Application to be tested using JTest on Azure DevOps Build Pipelines is a
 We'll be taking example of a very basic Calculator Application written in NodeJs and Automation Test for the same in Jest
 
 ## Folder Structure
-```text
+```
 calculator-app/
 │
 ├── src/
@@ -18,7 +18,7 @@ calculator-app/
 └── azure-pipelines.yml
 ```
 
-### package.json
+### `package.json`
 
 ```
 {
@@ -47,7 +47,7 @@ In Dev dependencies
 1. jest - Allow us to run Javascript testcases and Code coverage
 2. jest-junit - Coverets jest report into junit which can be read and published by Azure DevOps Build Pipelines
 
-### src/calculator.js
+### `src/calculator.js`
 
 ```
 function add(a, b) {
@@ -78,7 +78,7 @@ module.exports = {
 };
 ```
 
-### src/calculator.js
+### `src/calculator.js`
 
 ```
 function add(a, b) {
@@ -109,7 +109,7 @@ module.exports = {
 };
 ```
 
-### src/calculator.test.js
+### `src/calculator.test.js`
 
 ```
 const calculator = require('../src/calculator');
@@ -143,7 +143,7 @@ describe('Calculator Tests', () => {
 
 
 ### Azure Devops Build Pipeline
-### azure-pipelines.yml
+### `azure-pipelines.yml`
 
 Below is the Final azure-pipeline.yml that you would need to run to see both Test Case and Code Coverage to Work.
 
@@ -188,8 +188,20 @@ For Test Cases and its Reporting
 
 You can simply deploy this onto Azure DevOps Build Pipeline and one the build succeeds, You will be able to see the Passed/Failed Test Cases, Also with the help of Jest-Junit Reporting we can see a detailed report in the same run as well.
 
-![My Screenshot](./im.jpg)
+[My Screenshot](./im1.jpg)
 
 For Test Coverage
 
-Create
+Create a file `jest.config.js` with below components
+
+```
+module.exports = {
+  collectCoverage: true,
+  coverageReporters: ["cobertura", "lcov", "text"]
+};
+```
+
+This file will let Azure DevOps know that it needs to document the code coverage and what format it needs to use in order to show us the code coverage output. The report generated is called `cobertura-coverage.xml` and is stored in `coverage` directory.
+
+
+
