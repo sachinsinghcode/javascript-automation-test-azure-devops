@@ -144,6 +144,9 @@ describe('Calculator Tests', () => {
 
 ### Azure Devops Build Pipeline
 ### azure-pipelines.yml
+
+Below is the Final azure-pipeline.yml that you would need to run to see both Test Case and Code Coverage to Work.
+
 ```
 trigger:
 - master
@@ -188,3 +191,5 @@ You can simply deploy this onto Azure DevOps Build Pipeline and one the build su
 ![My Screenshot](./im.jpg)
 
 For Test Coverage
+
+Create
