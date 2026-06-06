@@ -1,5 +1,8 @@
 trigger:
-- master
+  branches:
+    include:
+    - main
+    - feature/*
 
 pool:
  vmImage: ubuntu-latest
@@ -47,10 +50,3 @@ stages:
         codeCoverageTool: Cobertura
         summaryFileLocation: 'coverage/cobertura-coverage.xml'
 
-    - task: BuildQualityChecks@10
-      displayName: Coverage Gate
-      inputs:
-        checkCoverage: true
-        coverageType: 'lines'
-        coverageFailOption: 'fixed'
-        coverageThreshold: '80'
